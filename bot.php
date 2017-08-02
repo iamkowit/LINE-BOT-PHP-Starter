@@ -14,7 +14,8 @@ if (!is_null($events['events'])) {
 			// Get text sent
 			$text = $event['message']['text'];
 			$group = $event['source']['groupId'];
-			$room = $event['source']['roomId'];			
+			$room = $event['source']['roomId'];
+			$user = $event['source']['userId'];
 			
 			// Get replyToken
 			$replyToken = $event['replyToken'];
@@ -22,7 +23,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			$messages = [ 
 				'type' => 'text',
-				'text' => $group
+				'text' => $user
 				    ];
 
 			// Make a POST Request to Messaging API to reply to sender
